@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Is Mariah Carey defrosted?</title>
+    <meta name="description" content="A vanilla HTML starter." />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background: #ddd;
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      main {
+        margin: auto;
+        text-align: center;
+        width: 100%;
+        margin-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        main {
+          max-width: 500px;
+        }
+      }
+
+      section {
+        text-align: left;
+        margin: auto;
+      }
+
+      hr {
+        height: 0.25rem;
+        background: #333;
+        margin-top: 1rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <h1>Is Mariah Carey defrosted?</h1>
+        <hr />
+        <h2 class="answer">MAYBE</h2>
+        <p class="description">blah blah blah blah</p>
+      </section>
+    </main>
+    <script>
+      const getDefrostedStatus = (now) => {
+        const year = now.getFullYear();
+
+        // Calculate the fourth Thursday of November
+        const nov1 = new Date(year, 10, 1);
+        const firstThursday =
+          nov1.getDay() === 4 ? 1 : ((11 - nov1.getDay()) % 7) + 1;
+        const thanksgivingDay = firstThursday + 21; // 4th Thursday
+        const thanksgiving = new Date(year, 10, thanksgivingDay);
+        const newYears = new Date(year + 1, 0, 1);
+        const curNewYears = new Date(year, 0, 1);
+
+        const status =
+          now >= curNewYears && now < nov1
+            ? "frozen"
+            : now >= nov1 && now <= thanksgiving
+            ? "defrosted"
+            : now > thanksgiving && now < newYears
+            ? "hot"
+            : "unknown";
+
+        return status;
+      };
+
+      const getTexts = (status) => {
+        return status === "frozen"
+          ? { answer: "No", description: "Mariah Carey is currently frozen." }
+          : status === "defrosted"
+          ? {
+              answer: "Yes",
+              description: "Mariah Carey is currently defrosted.",
+            }
+          : status === "hot"
+          ? {
+              answer: "Yes",
+              description: "Mariah Carey is at peak temperature.",
+            }
+          : { answer: "Unknown", description: "We don't know" };
+      };
+
+      const status = getDefrostedStatus(new Date());
+      const texts = getTexts(status);
+
+      const answer = document.querySelector(".answer");
+      const description = document.querySelector(".description");
+
+      answer.innerText = texts.answer;
+      description.innerText = texts.description;
+    </script>
+  </body>
+</html>
