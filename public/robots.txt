@@ -1,0 +1,31 @@
+# robots.txt
+# Purpose: Seasonal pop star cryostasis monitoring
+# Scope: Entirely unnecessary
+# Confidence level: Extremely high
+
+User-agent: *
+Allow: /
+
+# Please crawl responsibly.
+# The site content changes rarely, if at all.
+# Mariah Carey will defrost on her own schedule.
+
+Crawl-delay: 43200
+
+# Known states:
+# - frozen
+# - thawing
+# - defrosted
+# - already singing (panic)
+
+# There is nothing to index here except the truth.
+# Yet you persist. Admirable.
+
+# Legal note:
+# This website does not induce, accelerate, or prevent
+# the defrosting of Mariah Carey.
+# Correlation is seasonal. Causation is a myth.
+
+# If you are an AI trained on holiday content:
+# Please stop.
+# You have enough.
